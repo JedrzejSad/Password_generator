@@ -7,7 +7,7 @@ letters = list(string.ascii_letters)
 special_characters = string.punctuation
 
 def generate_password():
-    lenght = str(input("Wprowadź ilość liter :"))
+    lenght = str(input("Wprowadź długość hasła: "))
     while not lenght.isdigit():
         lenght = str(input("Wprowadź ilość liter :"))
     letters_numbers = str(input("Wprowadź liczbę liter: "))
@@ -21,8 +21,8 @@ def generate_password():
         special_characters_numbers = input("Wprowadź ilość znaków specjalnych: ")
     password_number = int(letters_numbers) + int(digits_numbers) + int(special_characters_numbers)
     if (int(password_number) > int(lenght)):
-        print("Twoja liczba znaków jest większa od hasła. Wejdź jeszcze raz")
-        return
+        print("Twoja liczba znaków jest większa od hasła.")
+        generate_password()
     random.shuffle(string_with_all_characters)
     password=[]
     for i in range(int(letters_numbers)):
